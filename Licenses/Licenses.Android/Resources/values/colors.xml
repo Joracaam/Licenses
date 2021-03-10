@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="splash_background">#EBEDED</color>
+  <color name="launcher_background">#EBEDED</color>
+  <color name="colorPrimary">#00366D</color>
+  <color name="colorPrimaryDark">#01223C</color>
+  <color name="colorAccent">#424242</color>
+  <color name="colorCursors">#01223C</color>
+</resources>

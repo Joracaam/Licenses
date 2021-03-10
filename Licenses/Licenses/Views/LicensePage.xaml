@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderer="clr-namespace:Licenses.CustomRenderer"
+             x:Class="Licenses.Views.LicensePage"
+             Title="Generar licencia">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Agregar Aplicación" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        
+        <ScrollView VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="Center" Padding="90">
+
+                <Label Text="Introduzca los datos solicitados" FontSize="Title" FontFamily="{StaticResource Neris-Light}"/>
+                <Label Text="Aplicación a licenciar" FontSize="Caption"/>
+                <Frame BorderColor="#01223C" CornerRadius="40" Padding="0" >
+                    <customrenderer:CustomPicker Title="Elija una App" BackgroundPopupColor="#31FFFFFF"  ItemsSource="{Binding Apps}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding AppSelected}"
+                                                 Padding="13"/>
+                </Frame>
+
+                <StackLayout IsVisible="{Binding IsAppSelected}">
+                    <Label Text="Serial Equipo" FontSize="Caption"/>
+                    <customrenderer:CustomEntry Placeholder="Serial del equipo a licenciar"  Text="{Binding SerialCode}" Padding="13" ClearButtonVisibility="WhileEditing" ReturnType="Next"
+                                        BackgroundColor="#31FFFFFF" BorderColor="#01223C" BorderThickness="2"
+                                        CornerRadius="40" PlaceholderColor="White"/>
+                </StackLayout>
+
+                <Label Text="Licencia" FontSize="Caption" IsVisible="{Binding IsVisible}" />
+                <customrenderer:CustomEntry Text="{Binding License}" IsVisible="{Binding IsVisible}" Padding="13" ClearButtonVisibility="WhileEditing" ReturnType="Next"
+                                        BackgroundColor="#31FFFFFF" BorderColor="#01223C" BorderThickness="2"
+                                        CornerRadius="40" PlaceholderColor="White"/>
+                <Button Text="licenciar" BackgroundColor="{Binding ButtonColor}" Command="{Binding Commands[GetLicensed]}" FontSize="10"
+                        VerticalOptions="Center"  HorizontalOptions="Center" FontFamily="{StaticResource Neris-Light}"
+                        CornerRadius="30" FontAttributes="Bold" HeightRequest="50" TextColor="#01223C"/>
+
+                <Button Text="Agregar Aplicación" BackgroundColor="{Binding ButtonColor}" Command="{Binding Commands[GotoAddAppPage]}" FontSize="10"
+                        VerticalOptions="Center"  HorizontalOptions="Center" FontFamily="{StaticResource Neris-Light}"
+                        CornerRadius="30" FontAttributes="Bold" HeightRequest="50" TextColor="#01223C"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

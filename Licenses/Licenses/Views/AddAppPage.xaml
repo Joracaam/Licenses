@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderer="clr-namespace:Licenses.CustomRenderer"
+             x:Class="Licenses.Views.AddAppPage"
+             Title="Agregar Aplicación">
+    
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="Center" Padding="90">
+
+                <Label Text="Introduzca los datos solicitados" FontSize="Title" FontFamily="{StaticResource Neris-Light}"/>
+
+                <Label Text="Nombre" FontSize="Caption"/>
+                <customrenderer:CustomEntry Placeholder="Aplicación"  Text="{Binding Name}" Padding="13" ReturnType="Next"
+                                BackgroundColor="#31FFFFFF" BorderColor="#01223C" BorderThickness="2"
+                                CornerRadius="40" PlaceholderColor="White"/>
+
+                <Label Text="Contador Hash" FontSize="Caption"/>
+                <customrenderer:CustomEntry Text="{Binding HashCounter}" Padding="13" Keyboard="Numeric"
+                                    BackgroundColor="#31FFFFFF" BorderColor="#01223C" BorderThickness="2"
+                                    CornerRadius="40" PlaceholderColor="White"/>
+                
+                <Button Text="licenciar" BackgroundColor="{Binding ButtonColor}" Command="{Binding Commands[Add]}" FontSize="10"
+                    VerticalOptions="Center"  HorizontalOptions="Center" FontFamily="{StaticResource Neris-Light}"
+                    CornerRadius="30" FontAttributes="Bold" HeightRequest="50" TextColor="#01223C"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
